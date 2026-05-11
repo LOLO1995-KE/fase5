@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Perfume } from '../data/perfumes';
+import type { Perfume } from '../api/client';
 import { useCart } from '../context/CartContext';
 
 interface PerfumeCardProps {

@@ -1,12 +1,34 @@
-import { useState, useMemo } from 'react';
-import { perfumes } from '../data/perfumes';
+import { useState, useMemo, useEffect } from 'react';
+import { fetchPerfumes } from '../api/client';
+import type { Perfume } from '../api/client';
 import PerfumeCard from '../components/PerfumeCard';
 
 export default function Catalog() {
+    const [perfumes, setPerfumes] = useState<Perfume[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedBrand, setSelectedBrand] = useState('Todos');
 
-    // Extract unique brands from the perfumes list dynamically
+    useEffect(() => {
+        const loadPerfumes = async () => {
+            try {
+                setIsLoading(true);
+                const data = await fetchPerfumes();
+                setPerfumes(data);
+                setError(null);
+            } catch (err) {
+                setError('No se pudo cargar el catálogo de perfumes. Por favor, intenta de nuevo más tarde.');
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        loadPerfumes();
+    }, []);
+
+    // Extract unique brands dynamically
     const brands = ['Todos', ...Array.from(new Set(perfumes.map(p => p.brand)))];
 
     // Filter logic
@@ -17,7 +39,27 @@ export default function Catalog() {
             const matchesBrand = selectedBrand === 'Todos' || perfume.brand === selectedBrand;
             return matchesSearch && matchesBrand;
         });
-    }, [searchTerm, selectedBrand]);
+    }, [perfumes, searchTerm, selectedBrand]);
+
+    if (isLoading) {
+        return (
+            <div className="flex justify-center items-center min-h-[80vh]">
+                <div className="animate-pulse flex flex-col items-center">
+                    <div className="w-12 h-12 border-4 border-gray-200 border-t-black rounded-full animate-spin mb-4"></div>
+                    <p className="text-gray-500 font-light tracking-widest uppercase text-xs">Cargando catálogo...</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="flex flex-col items-center justify-center min-h-[80vh] px-6 text-center">
+                <p className="text-2xl font-serif text-red-900 mb-4">Ocurrió un error</p>
+                <p className="text-gray-500 font-light max-w-md">{error}</p>
+            </div>
+        );
+    }
 
     return (
         <div className="py-20 px-6 max-w-7xl mx-auto min-h-[80vh]">

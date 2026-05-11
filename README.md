@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# 💎 Luciano's Boutique
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenido a **Luciano's Boutique**, una experiencia de comercio electrónico de lujo especializada en decants de alta perfumería nicho. Nuestra plataforma ofrece una interfaz minimalista, limpia y altamente inmersiva, diseñada para reflejar la exclusividad y sofisticación de las fragancias que ofrecemos.
 
-Currently, two official plugins are available:
+## ✨ Características Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+*   **Diseño Minimalista Premium**: Una interfaz de usuario cuidadosamente elaborada con generosos espacios en blanco, tipografías elegantes (*Playfair Display* e *Inter*), y paletas de colores sofisticadas para una experiencia de verdadero lujo.
+*   **Búsqueda y Filtros Inteligentes**: Encuentra tu fragancia ideal al instante buscando por nombre o filtrando directamente por exclusivas casas de perfumes (Tom Ford, Creed, Xerjoff, Amouage, etc.).
+*   **Carrito de Compras Persistente**: Sistema robusto construido de forma nativa con React Context y `localStorage`. Tus selecciones de fragancias (en distintos tamaños como 2ml, 5ml o 10ml) se mantienen a salvo y no se pierden aunque cierres el navegador o recargues la página.
+*   **Flujo de Compra Fluido**: Desde la selección del formato perfecto hasta el resumen del pedido y la confirmación final de compra.
+*   **Feedback Visual Avanzado**: Microinteracciones elegantes y fluidas en todos los componentes para guiar al usuario.
 
-## React Compiler
+## 📸 Vistazo a la Aplicación
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*(Añade aquí las capturas reales de la tienda)*
 
-## Expanding the ESLint configuration
+| Home | Catálogo | Carrito |
+| :---: | :---: | :---: |
+| ![Home](./public/placeholder-home.png) | ![Catálogo](./public/placeholder-catalog.png) | ![Carrito](./public/placeholder-cart.png) |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+> **Tip**: Puedes arrastrar las capturas de pantalla a tu carpeta `public/` y sustituir los enlaces de arriba.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Instalación y Ejecución
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Sigue estos pasos para desplegar el entorno de desarrollo en tu máquina local:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Abre tu terminal** y navega hasta el directorio raíz del proyecto.
+2. **Instala las dependencias** esenciales (asegúrate de tener Node.js instalado):
+   ```bash
+   npm install
+   ```
+3. **Arranca el servidor de desarrollo** de alta velocidad impulsado por Vite:
+   ```bash
+   npm run dev
+   ```
+4. **Visita la tienda** abriendo tu navegador en `http://localhost:5173` (o en el enlace local que indique tu consola).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Tecnologías
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+*   **React 19 + TypeScript**: Lógica de componentes tipada, escalable y robusta.
+*   **Vite**: Herramienta de compilación para una experiencia de desarrollo instantánea.
+*   **Tailwind CSS v4**: Motor de estilos por utilidades para construir diseños completamente a medida directamente en el marcado.
+*   **React Router DOM v7**: Enrutamiento declarativo para una verdadera experiencia Single Page Application (SPA).
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📦 Entregables
+
+A continuación se encuentran los enlaces oficiales requeridos para la evaluación del proyecto:
+
+- **Repositorio de GitHub:** [Inserta tu enlace a GitHub aquí]
+- **Despliegue en Producción (Vercel):** [Inserta tu enlace a Vercel aquí]
+- **Tablero Ágil Kanban (Trello):** [Inserta tu enlace a Trello aquí]
+
+---
+*Diseñado y desarrollado prestando especial atención a los pequeños detalles. Porque el lujo está en la sutileza.*
