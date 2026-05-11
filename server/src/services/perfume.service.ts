@@ -4,6 +4,8 @@ export interface Perfume {
   name: string;
   description: string;
   image: string;
+  gender?: string;
+  note?: string;
   prices: {
     '2ml': number;
     '5ml': number;
@@ -19,6 +21,8 @@ class PerfumeService {
       name: 'Aventus',
       description: 'Una fragancia icónica y sofisticada con notas de piña, abedul y almizcle. El epítome del éxito y la elegancia.',
       image: '/creed aventus.jpg',
+      gender: 'Masculino',
+      note: 'Cítrico',
       prices: {
         '2ml': 12,
         '5ml': 28,
@@ -31,6 +35,8 @@ class PerfumeService {
       name: 'Oud Wood',
       description: 'Una composición cálida y envolvente basada en la exclusiva madera de oud, mezclada con especias exóticas y cardamomo.',
       image: '/oud wood TF.jpg',
+      gender: 'Unisex',
+      note: 'Amaderado',
       prices: {
         '2ml': 15,
         '5ml': 35,
@@ -43,6 +49,8 @@ class PerfumeService {
       name: 'Baccarat Rouge 540',
       description: 'Un aura luminosa y densa con notas de jazmín, azafrán, madera de cedro y ámbar gris. Auténtica alquimia sensorial.',
       image: '/baccarat rouge 540.jpg',
+      gender: 'Unisex',
+      note: 'Oriental',
       prices: {
         '2ml': 18,
         '5ml': 42,
@@ -55,6 +63,8 @@ class PerfumeService {
       name: 'Layton',
       description: 'Elegancia pura de la corte real francesa que combina vainilla seductora, manzana caramelizada y maderas nobles.',
       image: '/Layton PdM.jpg',
+      gender: 'Masculino',
+      note: 'Dulce',
       prices: {
         '2ml': 14,
         '5ml': 32,
@@ -67,6 +77,8 @@ class PerfumeService {
       name: 'Naxos',
       description: 'Un vibrante homenaje a Sicilia con notas dulces y envolventes de miel dorada, tabaco rico, lavanda y cítricos frescos.',
       image: '/naxos xerjoff.jpg',
+      gender: 'Unisex',
+      note: 'Gourmand',
       prices: {
         '2ml': 16,
         '5ml': 38,
@@ -79,6 +91,8 @@ class PerfumeService {
       name: 'Reflection Man',
       description: 'Una fragancia floral amaderada que irradia una masculinidad refinada, combinando neroli, jazmín y sándalo.',
       image: '/reflexion man amouage.jpg',
+      gender: 'Masculino',
+      note: 'Floral',
       prices: {
         '2ml': 15,
         '5ml': 35,

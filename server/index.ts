@@ -11,6 +11,12 @@ app.use(express.json());
 // Montar las rutas
 app.use('/api/perfumes', perfumeRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Servidor de Luciano's Boutique corriendo en http://localhost:${PORT}`);
-});
+// En Vercel no necesitamos que el servidor escuche activamente en un puerto,
+// Vercel se encarga de invocar la aplicación exportada.
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Servidor de Luciano's Boutique corriendo en http://localhost:${PORT}`);
+  });
+}
+
+export default app;
