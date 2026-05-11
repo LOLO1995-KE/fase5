@@ -84,12 +84,22 @@ const MOCK_PERFUMES: Perfume[] = [
 ];
 
 export async function fetchPerfumes(): Promise<Perfume[]> {
+  // En producción (Vercel) usamos la data mockeada directamente para evitar colapsos de red
+  if (import.meta.env.PROD) {
+    console.log('Entorno de Producción detectado. Retornando Mock.');
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(MOCK_PERFUMES);
+      }, 500); // Pequeño retraso simulado para el loader
+    });
+  }
+
+  // En local (Desarrollo) apuntamos directamente al servidor Express
   try {
-    // Intentar obtener los datos del servidor real
-    const response = await fetch('/api/perfumes');
+    const response = await fetch('http://localhost:3000/api/perfumes');
     
     if (!response.ok) {
-      throw new Error(`Servidor devolvió estado: ${response.status}`);
+      throw new Error(`Servidor local devolvió estado: ${response.status}`);
     }
     
     const json: ApiResponse<Perfume[]> = await response.json();
@@ -100,15 +110,7 @@ export async function fetchPerfumes(): Promise<Perfume[]> {
     
     return json.data;
   } catch (error) {
-    // Patrón Graceful Degradation: Proveer una experiencia fluida si el servidor cae
-    console.warn('Servidor no disponible, usando datos de respaldo (Mock). Detalle:', error);
-    
-    // Retornar los datos estáticos tras simular la latencia de una red real (800ms)
-    // Esto asegura que el usuario vea el 'Loading spinner' y la interfaz reaccione naturalmente
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(MOCK_PERFUMES);
-      }, 800);
-    });
+    console.warn('Servidor local no disponible, usando datos de respaldo (Mock). Detalle:', error);
+    return MOCK_PERFUMES;
   }
 }
