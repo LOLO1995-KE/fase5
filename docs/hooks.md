@@ -18,3 +18,8 @@ Nos salva del *prop drilling* (el problema de pasar datos a través de infinitas
 ## `useMemo`
 Lo empleamos estrictamente para optimización de rendimiento.
 - **Ejemplo**: El filtrado del catálogo. En lugar de recalcular qué perfumes deben mostrarse en cada render (lo cual es costoso), `useMemo` guarda el resultado y solo vuelve a calcularlo si cambian sus dependencias exactas (`searchTerm`, `selectedBrand` o el array crudo de `perfumes`), manteniendo la escritura en la barra de búsqueda 100% ágil.
+
+## `useDebounce` (Custom Hook)
+Además de los hooks nativos, creamos y empleamos un hook personalizado para optimizar el buscador.
+- **Problema**: Si un usuario teclea velozmente "Tom Ford", la aplicación intentaría recalcular el filtro tras cada letra ("T", "To", "Tom"...), lo cual puede saturar la aplicación si el catálogo es inmenso.
+- **Solución**: Nuestro hook `useDebounce` "retiene" el valor del buscador durante unos instantes (300ms) después de la última pulsación de tecla. De este modo, la pesada lógica del `useMemo` solo se dispara una vez al final, proporcionando una experiencia de lujo sin ningún tipo de retardo en la interfaz (lag).

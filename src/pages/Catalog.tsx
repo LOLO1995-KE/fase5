@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { fetchPerfumes } from '../api/client';
 import type { Perfume } from '../api/client';
 import PerfumeCard from '../components/PerfumeCard';
+import { useDebounce } from '../hooks/useDebounce';
 
 export default function Catalog() {
     const [perfumes, setPerfumes] = useState<Perfume[]>([]);
@@ -9,6 +10,7 @@ export default function Catalog() {
     const [error, setError] = useState<string | null>(null);
 
     const [searchTerm, setSearchTerm] = useState('');
+    const debouncedSearchTerm = useDebounce(searchTerm, 300);
     const [selectedBrand, setSelectedBrand] = useState('Todos');
 
     useEffect(() => {
@@ -34,12 +36,12 @@ export default function Catalog() {
     // Filter logic
     const filteredPerfumes = useMemo(() => {
         return perfumes.filter(perfume => {
-            const matchesSearch = perfume.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                                  perfume.brand.toLowerCase().includes(searchTerm.toLowerCase());
+            const matchesSearch = perfume.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) || 
+                                  perfume.brand.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
             const matchesBrand = selectedBrand === 'Todos' || perfume.brand === selectedBrand;
             return matchesSearch && matchesBrand;
         });
-    }, [perfumes, searchTerm, selectedBrand]);
+    }, [perfumes, debouncedSearchTerm, selectedBrand]);
 
     if (isLoading) {
         return (
