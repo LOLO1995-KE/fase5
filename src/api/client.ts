@@ -19,11 +19,9 @@ interface ApiResponse<T> {
   message: string;
 }
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-
 export async function fetchPerfumes(): Promise<Perfume[]> {
   try {
-    const response = await fetch(`${API_URL}/api/perfumes`);
+    const response = await fetch('/api/perfumes');
     if (!response.ok) {
       throw new Error('Error al obtener el catálogo de perfumes');
     }

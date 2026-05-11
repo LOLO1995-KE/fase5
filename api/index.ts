@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import perfumeRoutes from './src/routes/perfume.routes';
+import perfumeRoutes from '../server/src/routes/perfume.routes';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
