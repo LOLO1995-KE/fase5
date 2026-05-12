@@ -1,8 +1,8 @@
-# 💎 Luciano's Boutique
+#  Luciano's Boutique
 
 Bienvenido a **Luciano's Boutique**, una experiencia de comercio electrónico de lujo especializada en decants de alta perfumería nicho. Nuestra plataforma ofrece una interfaz minimalista, limpia y altamente inmersiva, diseñada para reflejar la exclusividad y sofisticación de las fragancias que ofrecemos.
 
-## ✨ Características Principales
+##  Características Principales
 
 *   **Diseño Minimalista Premium**: Una interfaz de usuario cuidadosamente elaborada con generosos espacios en blanco, tipografías elegantes (*Playfair Display* e *Inter*), y paletas de colores sofisticadas para una experiencia de verdadero lujo.
 *   **Búsqueda y Filtros Inteligentes**: Encuentra tu fragancia ideal al instante buscando por nombre o filtrando directamente por exclusivas casas de perfumes (Tom Ford, Creed, Xerjoff, Amouage, etc.).
@@ -20,7 +20,7 @@ Bienvenido a **Luciano's Boutique**, una experiencia de comercio electrónico de
 
 > **Tip**: Puedes arrastrar las capturas de pantalla a tu carpeta `public/` y sustituir los enlaces de arriba.
 
-## 🚀 Instalación y Ejecución
+##  Instalación y Ejecución
 
 Sigue estos pasos para desplegar el entorno de desarrollo en tu máquina local:
 
@@ -42,13 +42,3 @@ Sigue estos pasos para desplegar el entorno de desarrollo en tu máquina local:
 *   **Tailwind CSS v4**: Motor de estilos por utilidades para construir diseños completamente a medida directamente en el marcado.
 *   **React Router DOM v7**: Enrutamiento declarativo para una verdadera experiencia Single Page Application (SPA).
 
-## 📦 Entregables
-
-A continuación se encuentran los enlaces oficiales requeridos para la evaluación del proyecto:
-
-- **Repositorio de GitHub:** [Inserta tu enlace a GitHub aquí]
-- **Despliegue en Producción (Vercel):** [Inserta tu enlace a Vercel aquí]
-- **Tablero Ágil Kanban (Trello):** [Inserta tu enlace a Trello aquí]
-
----
-*Diseñado y desarrollado prestando especial atención a los pequeños detalles. Porque el lujo está en la sutileza.*
